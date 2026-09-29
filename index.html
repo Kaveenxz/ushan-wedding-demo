@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ushan Gunasekera — Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & GLOBAL ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #F7F4F0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F4F0;
+      color: #171614;
+      font-weight: 300;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .label {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8A8580;
+      font-weight: 400;
+    }
+
+    .label-dark {
+      color: #171614;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    /* ── FINE DIVIDER LINE ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(23, 22, 20, 0.08);
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.8rem 2.5rem;
+      background: rgba(247, 244, 240, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(23, 22, 20, 0.05);
+      transition: padding 0.5s cubic-bezier(0.2, 0.9, 0.3, 1), background 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav.shrink {
+      padding: 1rem 2.5rem;
+      background: rgba(247, 244, 240, 0.98);
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.15;
+      color: #171614;
+    }
+
+    .nav-brand span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: #8A8580;
+      margin-top: 0.2rem;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-center a {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #171614;
+      position: relative;
+      padding-bottom: 0.2rem;
+      opacity: 0.75;
+      transition: opacity 0.3s;
+    }
+
+    .nav-center a:hover {
+      opacity: 1;
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #171614;
+      transition: width 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .nav-center a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-right a {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #171614;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .nav-right a:hover {
+      opacity: 1;
+    }
+
+    .nav-right svg {
+      width: 15px;
+      height: 15px;
+      fill: #171614;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .nav-right a:hover svg {
+      opacity: 1;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #171614;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        padding: 1.4rem 1.5rem;
+      }
+      .nav.shrink {
+        padding: 1rem 1.5rem;
+      }
+      .nav-center {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #F7F4F0;
+        flex-direction: column;
+        padding: 2.5rem 1.5rem;
+        gap: 2rem;
+        border-bottom: 1px solid rgba(23, 22, 20, 0.08);
+        align-items: flex-start;
+      }
+      .nav-center.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-right .ig-label {
+        display: none;
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 9rem;
+      padding-bottom: 5rem;
+      background: #F7F4F0;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero-left .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #171614;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: #171614;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #5E5A56;
+      max-width: 380px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #171614;
+      border-bottom: 1px solid #171614;
+      padding-bottom: 0.35rem;
+      width: fit-content;
+      transition: gap 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.3s ease;
+    }
+
+    .btn:hover {
+      gap: 1rem;
+      opacity: 0.6;
+    }
+
+    .btn .arrow {
+      font-size: 0.9rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(23, 22, 20, 0.12);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-image-label {
+      position: absolute;
+      bottom: -2rem;
+      right: 0;
+      font-size: 0.52rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #8A8580;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 7.5rem;
+        padding-bottom: 3.5rem;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-right {
+        justify-content: flex-start;
+      }
+      .hero-image-wrap {
+        max-width: 100%;
+      }
+      .hero-image-wrap img {
+        aspect-ratio: 4 / 5;
+      }
+      .hero-image-wrap::after {
+        display: none;
+      }
+      .hero-image-label {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 0.8rem;
+      }
+      .hero-headline {
+        font-size: 2.8rem;
+      }
+    }
+
+    /* ── APPROACH ── */
+    .approach {
+      background: #F0EDE8;
+    }
+
+    .approach-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .approach-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .approach-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #171614;
+    }
+
+    .approach-body {
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: #5E5A56;
+      max-width: 400px;
+    }
+
+    .approach-image {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .approach-image img {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .approach-image::before {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      width: 80%;
+      height: 80%;
+      border: 1px solid rgba(23, 22, 20, 0.1);
+      z-index: -1;
+    }
+
+    @media (max-width: 900px) {
+      .approach-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .approach-image {
+        justify-content: flex-start;
+      }
+      .approach-image img {
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+      }
+      .approach-image::before {
+        display: none;
+      }
+    }
+
+    /* ── FEATURED WORK — REFINED ── */
+    .featured {
+      background: #F7F4F0;
+    }
+
+    .featured-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .featured-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: #171614;
+    }
+
+    .featured-sub {
+      font-size: 0.7rem;
+      color: #8A8580;
+      letter-spacing: 0.06em;
+      margin-bottom: 3rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Project cards — refined, compact, editorial */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #EFECE7;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .project-card .card-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 1.8rem 1.8rem;
+      background: linear-gradient(to top, rgba(23, 22, 20, 0.75) 0%, transparent 100%);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      pointer-events: none;
+    }
+
+    .project-card:hover .card-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-info .couple {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      letter-spacing: 0.02em;
+    }
+
+    .card-info .meta {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+    }
+
+    .card-info .category {
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Grid placements — varied sizes, compact layout */
+    .project-card.pc-1 {
+      grid-column: 1 / 7;
+      grid-row: 1 / 3;
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-card.pc-2 {
+      grid-column: 7 / 10;
+      grid-row: 1 / 2;
+      aspect-ratio: 1 / 1;
+    }
+
+    .project-card.pc-3 {
+      grid-column: 10 / 13;
+      grid-row: 1 / 3;
+      aspect-ratio: 2 / 3;
+    }
+
+    .project-card.pc-4 {
+      grid-column: 7 / 10;
+      grid-row: 2 / 3;
+      aspect-ratio: 1 / 1;
+    }
+
+    .project-card.pc-5 {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-card.pc-6 {
+      grid-column: 5 / 13;
+      grid-row: 3 / 4;
+      aspect-ratio: 16 / 7;
+    }
+
+    @media (max-width: 900px) {
+      .featured-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .project-card {
+        aspect-ratio: auto !important;
+      }
+      .project-card img {
+        aspect-ratio: 4 / 3;
+      }
+      .project-card.pc-3 img {
+        aspect-ratio: 3 / 4;
+      }
+      .project-card.pc-6 img {
+        aspect-ratio: 16 / 9;
+      }
+      .project-card .card-info {
+        opacity: 1;
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(23, 22, 20, 0.7) 0%, transparent 100%);
+        padding: 1.5rem 1.2rem 1.2rem;
+      }
+    }
+
+    .featured-footer {
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: #F0EDE8;
+    }
+
+    .services-header {
+      margin-bottom: 3rem;
+    }
+
+    .services-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 300;
+      color: #171614;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .service-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: grayscale(0.15);
+      transition: filter 0.6s ease;
+    }
+
+    .service-item:hover img {
+      filter: grayscale(0);
+    }
+
+    .service-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #171614;
+    }
+
+    .service-item p {
+      font-size: 0.78rem;
+      line-height: 1.8;
+      color: #5E5A56;
+      max-width: 280px;
+    }
+
+    .service-item .btn {
+      margin-top: 0.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2.8rem;
+      }
+      .service-item p {
+        max-width: 100%;
+      }
+    }
+
+    /* ── ABOUT / BEHIND THE LENS ── */
+    .about {
+      background: #F7F4F0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-image {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: grayscale(0.2);
+      transition: filter 0.8s ease;
+    }
+
+    .about-image:hover img {
+      filter: grayscale(0);
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(23, 22, 20, 0.08);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .about-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #171614;
+    }
+
+    .about-content p {
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: #5E5A56;
+      max-width: 400px;
+    }
+
+    @media (max-width: 900px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-image img {
+        aspect-ratio: 4 / 5;
+      }
+      .about-image::after {
+        display: none;
+      }
+    }
+
+    /* ── EDITORIAL MOMENT ── */
+    .editorial {
+      background: #171614;
+      color: #F7F4F0;
+      padding: 0;
+    }
+
+    .editorial-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 75vh;
+    }
+
+    .editorial-image {
+      overflow: hidden;
+    }
+
+    .editorial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.08);
+    }
+
+    .editorial-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4.5rem;
+      gap: 2.5rem;
+    }
+
+    .editorial-text blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: #F7F4F0;
+      font-style: normal;
+    }
+
+    .editorial-text .label {
+      color: #8A8580;
+    }
+
+    @media (max-width: 900px) {
+      .editorial-inner {
+        grid-template-columns: 1fr;
+      }
+      .editorial-image img {
+        aspect-ratio: 4 / 5;
+      }
+      .editorial-text {
+        padding: 3.5rem 1.5rem;
+      }
+      .editorial-text blockquote {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* ── INSTAGRAM / LATEST ── */
+    .instagram {
+      background: #F7F4F0;
+    }
+
+    .instagram-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2.5rem;
+    }
+
+    .instagram-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 300;
+      color: #171614;
+    }
+
+    .instagram-header .handle {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8A8580;
+    }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .instagram-grid .ig-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .instagram-grid .ig-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .instagram-grid .ig-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* asymmetric layout */
+    .instagram-grid .ig-item:nth-child(1) { grid-column: span 2; aspect-ratio: 4/3; }
+    .instagram-grid .ig-item:nth-child(2) { grid-column: span 1; aspect-ratio: 1/1; }
+    .instagram-grid .ig-item:nth-child(3) { grid-column: span 1; aspect-ratio: 1/1; }
+    .instagram-grid .ig-item:nth-child(4) { grid-column: span 2; aspect-ratio: 4/3; }
+    .instagram-grid .ig-item:nth-child(5) { grid-column: span 1; aspect-ratio: 1/1; }
+    .instagram-grid .ig-item:nth-child(6) { grid-column: span 3; aspect-ratio: 3/1; }
+    .instagram-grid .ig-item:nth-child(7) { grid-column: span 2; aspect-ratio: 4/3; }
+    .instagram-grid .ig-item:nth-child(8) { grid-column: span 1; aspect-ratio: 1/1; }
+
+    .instagram-grid .ig-item:nth-child(6) img {
+      object-position: center 30%;
+    }
+
+    .instagram-footer {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .instagram-header {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      .instagram-grid .ig-item {
+        grid-column: span 1 !important;
+        aspect-ratio: 1/1 !important;
+      }
+      .instagram-grid .ig-item:nth-child(6) {
+        grid-column: span 2 !important;
+        aspect-ratio: 2/1 !important;
+      }
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: #171614;
+      color: #F7F4F0;
+      text-align: center;
+      padding: 7rem 0;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: #F7F4F0;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact p {
+      font-size: 0.85rem;
+      color: #8A8580;
+      margin-bottom: 2.8rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .contact .btn {
+      color: #F7F4F0;
+      border-bottom-color: #F7F4F0;
+      margin: 0 auto 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8A8580;
+    }
+
+    .contact-links a {
+      color: #8A8580;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: #F7F4F0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #F7F4F0;
+      padding: 2.8rem 0;
+      border-top: 1px solid rgba(23, 22, 20, 0.06);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #171614;
+    }
+
+    .footer-brand span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.48rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      color: #8A8580;
+      margin-top: 0.15rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a {
+      color: #5E5A56;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #171614;
+    }
+
+    .footer-copy {
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      color: #8A8580;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.1s cubic-bezier(0.2, 0.9, 0.3, 1), transform 1.1s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand">
+      USHAN<br>GUNASEKERA
+      <span>PHOTOGRAPHY</span>
+    </div>
+    <ul class="nav-center" id="navCenter">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">MENU</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="name serif">Ushan Gunasekera</div>
+          <h1 class="hero-headline serif">PHOTOGRAPHS<br>THAT HOLD<br><em>A MOMENT.</em></h1>
+          <p class="hero-sub">Wedding, portrait & editorial photography from Sri Lanka to wherever the story takes you.</p>
+          <a href="#work" class="btn">VIEW THE WORK <span class="arrow">→</span></a>
+        </div>
+        <div class="hero-right">
+          <div class="hero-image-wrap">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop" alt="Selected work — wedding portrait">
+            <span class="hero-image-label">01 / SELECTED WORK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="approach-inner">
+        <div class="approach-text reveal">
+          <span class="label">THE APPROACH</span>
+          <h2 class="approach-headline serif">HONEST MOMENTS.<br>CAREFULLY FRAMED.</h2>
+          <p class="approach-body">Ushan Gunasekera photographs weddings, portraits and stories with an emphasis on connection, atmosphere and the moments that happen naturally.</p>
+        </div>
+        <div class="approach-image reveal">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" alt="Behind the scenes — portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK — REFINED EDITORIAL GRID -->
+  <section class="featured" id="work">
+    <div class="container">
+      <div class="featured-header">
+        <h2 class="serif">SELECTED STORIES</h2>
+        <a href="#" class="btn">VIEW ALL <span class="arrow">→</span></a>
+      </div>
+      <p class="featured-sub">A curated selection of recent work — weddings, portraits and editorial commissions.</p>
+
+      <div class="featured-grid">
+
+        <!-- 01 — large landscape -->
+        <div class="project-card pc-1 reveal">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Christian & Senepa — wedding">
+          <div class="card-info">
+            <span class="couple serif">Christian & Senepa</span>
+            <span class="meta">Colombo</span>
+            <span class="category">Wedding / 2026</span>
+          </div>
+        </div>
+
+        <!-- 02 — square -->
+        <div class="project-card pc-2 reveal">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop" alt="Isuru & Dilani — pre-wedding">
+          <div class="card-info">
+            <span class="couple serif">Isuru & Dilani</span>
+            <span class="meta">Galle</span>
+            <span class="category">Pre-Wedding / 2025</span>
+          </div>
+        </div>
+
+        <!-- 03 — tall portrait -->
+        <div class="project-card pc-3 reveal">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Nethmi — portrait">
+          <div class="card-info">
+            <span class="couple serif">Nethmi</span>
+            <span class="meta">Kandy</span>
+            <span class="category">Portrait / 2026</span>
+          </div>
+        </div>
+
+        <!-- 04 — square -->
+        <div class="project-card pc-4 reveal">
+          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1974&auto=format&fit=crop" alt="Monochrome — editorial">
+          <div class="card-info">
+            <span class="couple serif">Monochrome</span>
+            <span class="meta">Colombo</span>
+            <span class="category">Editorial / 2026</span>
+          </div>
+        </div>
+
+        <!-- 05 — landscape -->
+        <div class="project-card pc-5 reveal">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" alt="Rashmi & Kavith — pre-wedding">
+          <div class="card-info">
+            <span class="couple serif">Rashmi & Kavith</span>
+            <span class="meta">Kandy Hills</span>
+            <span class="category">Pre-Wedding / 2026</span>
+          </div>
+        </div>
+
+        <!-- 06 — wide cinematic -->
+        <div class="project-card pc-6 reveal">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop" alt="Ashan & Dilini — wedding">
+          <div class="card-info">
+            <span class="couple serif">Ashan & Dilini</span>
+            <span class="meta">Negombo</span>
+            <span class="category">Wedding / 2025</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="featured-footer">
+        <a href="#" class="btn">VIEW ALL STORIES <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <h2 class="serif">SERVICES</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-item reveal">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" alt="Weddings">
+          <h3 class="serif">Weddings</h3>
+          <p>Intimate moments, honest emotions and the atmosphere surrounding the day.</p>
+          <a href="#" class="btn">VIEW <span class="arrow">→</span></a>
+        </div>
+        <div class="service-item reveal">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" alt="Pre-Weddings">
+          <h3 class="serif">Pre-Weddings</h3>
+          <p>Quiet, cinematic sessions that tell your story before the big day.</p>
+          <a href="#" class="btn">VIEW <span class="arrow">→</span></a>
+        </div>
+        <div class="service-item reveal">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop" alt="Portraits & Editorial">
+          <h3 class="serif">Portraits & Editorial</h3>
+          <p>Refined, emotive portraiture for individuals, artists and publications.</p>
+          <a href="#" class="btn">VIEW <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / BEHIND THE LENS -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-image reveal">
+          <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?q=80&w=1974&auto=format&fit=crop" alt="Ushan Gunasekera — portrait">
+        </div>
+        <div class="about-content reveal">
+          <h2 class="serif">BEHIND<br>THE LENS.</h2>
+          <p>Ushan Gunasekera is a Sri Lankan photographer drawn to the quiet, unposed moments that define a story. His work moves between weddings, portraits and editorial assignments — always led by feeling, movement and honest connection.</p>
+          <a href="#" class="btn">MORE ABOUT US <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL MOMENT -->
+  <section class="editorial">
+    <div class="editorial-inner">
+      <div class="editorial-image">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop" alt="Black and white portrait">
+      </div>
+      <div class="editorial-text">
+        <blockquote class="serif">"THE BEST<br>PHOTOGRAPHS<br>DON'T FEEL<br>POSED."</blockquote>
+        <span class="label">WEDDINGS / PORTRAITS / STORIES</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM / LATEST -->
+  <section class="instagram">
+    <div class="container">
+      <div class="instagram-header">
+        <h2 class="serif">FROM THE LATEST</h2>
+        <span class="handle">@ushangunasekeraphotography</span>
+      </div>
+      <div class="instagram-grid">
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1974&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop" alt="Latest work"></div>
+        <div class="ig-item"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" alt="Latest work"></div>
+      </div>
+      <div class="instagram-footer">
+        <a href="#" class="btn">FOLLOW ON INSTAGRAM <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="serif">HAVE A STORY<br>IN MIND?</h2>
+      <p>Let's talk about your day, your ideas, and everything in between.</p>
+      <a href="mailto:hello@ushanguna.com" class="btn">GET IN TOUCH <span class="arrow">→</span></a>
+      <div class="contact-links">
+        <a href="mailto:hello@ushanguna.com">hello@ushanguna.com</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        USHAN GUNASEKERA
+        <span>PHOTOGRAPHY</span>
+      </div>
+      <div class="footer-links">
+        <a href="#work">Weddings</a>
+        <a href="#work">Portraits</a>
+        <a href="#work">Editorial</a>
+      </div>
+      <div class="footer-copy">Sri Lanka / Worldwide</div>
+      <div class="footer-copy">© 2026 Ushan Gunasekera</div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ── NAV SHRINK ──
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          nav.classList.add('shrink');
+        } else {
+          nav.classList.remove('shrink');
+        }
+      });
+
+      // ── MOBILE MENU ──
+      const menuToggle = document.getElementById('menuToggle');
+      const navCenter = document.getElementById('navCenter');
+      menuToggle.addEventListener('click', function() {
+        navCenter.classList.toggle('open');
+        menuToggle.textContent = navCenter.classList.contains('open') ? 'CLOSE' : 'MENU';
+      });
+      navCenter.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navCenter.classList.remove('open');
+          menuToggle.textContent = 'MENU';
+        });
+      });
+
+      // ── SCROLL REVEAL ──
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px'
+      });
+      reveals.forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
